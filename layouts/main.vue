@@ -18,6 +18,10 @@
 </script>
 
 <style>
+    @media only screen and (max-width: 960px) {
+        .main-container { min-height: calc( 100% - 177px ) !important; }
+    }
+
     .row { margin: 0px !important; }
     .base-container { background-color: #EEEEEE; }
     .main-container { min-height: calc( 100% - 170px ); }
