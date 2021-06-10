@@ -16,7 +16,7 @@
                         <v-row> <p> <b>Cantidad: </b> {{product.quantity}} </p> </v-row>
                     </v-col>
                     <v-col cols="2" class="d-none d-md-block">
-                        <v-row justify="center"> <h2> <b> {{formatter.format(product.price)}} </b> </h2> </v-row>
+                        <v-row justify="center"> <h2> {{formatter.format(product.price)}} </h2> </v-row>
                     </v-col>
                 </v-row>
             </v-col>
