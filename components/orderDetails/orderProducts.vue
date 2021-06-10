@@ -27,5 +27,5 @@
 </script>
 
 <style scoped>
-    .img-product { width: 100%; max-width: 110px; height: 100%; max-height: 100% }
+    .img-product { width: auto; max-width: 110px; height: 100%; max-height: 100px }
 </style>
