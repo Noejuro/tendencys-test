@@ -4,7 +4,7 @@
             <v-col class="py-5">
                 <v-row> <p class="mb-0"> Order: <b> {{orderDetails.name}} </b> </p> </v-row>
                 <v-row v-if="this.orderDetails.items" class="pb-4"> <h3> Subtotal ({{getProductsQuantity}} products): {{getSubTotal}} </h3> </v-row>
-                <v-row> <v-btn color="success" @click="$emit('openSuccessPaymentDialog')" block>Finish Payment</v-btn> </v-row>
+                <v-row> <v-btn color="#F64C72" class="site-btn" @click="$emit('openSuccessPaymentDialog')" block>Finish Payment</v-btn> </v-row>
             </v-col>
         </v-card>
     </v-row>

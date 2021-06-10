@@ -6,15 +6,19 @@
             <!-- Succes Payment Dialog -->
             <dialogSuccessPayment :dialog="dialogSuccessPayment" @closeDialog="dialogSuccessPayment = false" />
             <!-- Order products and Details -->
-            <v-row align="start">
-                <v-col>
+            <v-row align="start" justify="center">
+                <v-col cols="12" md="" order="2" order-md="1">
                     <orderProducts :products="order.items" />
                 </v-col>
-                <v-col cols="auto" class="sticky-block">
+                <v-col cols="auto" class="sticky-block" order="1" order-md="2">
                     <orderDetails :orderDetails="order" @openSuccessPaymentDialog="dialogSuccessPayment = true" />
                     <!-- Add product -->
-                    <v-row class="pt-10 px-4">
-                        <v-btn color="success" block @click="dialogAddProducts = true"> Add product </v-btn>
+                    <v-row class="pt-1 pt-md-6">
+                        <v-card class="add-card">
+                            <v-col class="py-5">
+                                <v-btn color="#F64C72" class="site-btn" block @click="dialogAddProducts = true"> Add product </v-btn>
+                            </v-col>
+                        </v-card>
                     </v-row>
                 </v-col>
             </v-row>
@@ -72,4 +76,5 @@ export default {
 
 <style scoped>
     .sticky-block { position: sticky !important; top: 0; }
+    .add-card { width: 400px; max-width: 100%; }
 </style>

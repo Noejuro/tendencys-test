@@ -21,4 +21,5 @@
     .row { margin: 0px !important; }
     .base-container { background-color: #EEEEEE; }
     .main-container { min-height: calc( 100% - 170px ); }
+    .site-btn { color: white !important; text-transform: none !important; }
 </style>
