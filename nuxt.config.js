@@ -37,7 +37,7 @@ export default {
   ],
 
   env: {
-    baseUrl: process.env.BASEURL,
+    tendencys_baseUrl: process.env.BASEURL,
  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
