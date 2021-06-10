@@ -1,9 +1,9 @@
 <template>
     <v-row id="order-details">
         <v-col class="pa-0">
-            <v-row> Orden: {{orderDetails.name}} </v-row>
-            <v-row v-if="this.orderDetails.items"> Subtotal ({{getProductsQuantity}} productos): {{getSubTotal}} </v-row>
-            <v-row> <v-btn color="success" @click="$emit('openSuccessPaymentDialog')" block>Terminar Pago</v-btn> </v-row>
+            <v-row> Order: {{orderDetails.name}} </v-row>
+            <v-row v-if="this.orderDetails.items"> Subtotal ({{getProductsQuantity}} products): {{getSubTotal}} </v-row>
+            <v-row> <v-btn color="success" @click="$emit('openSuccessPaymentDialog')" block>Finish Payment</v-btn> </v-row>
         </v-col>
     </v-row>
 </template>
