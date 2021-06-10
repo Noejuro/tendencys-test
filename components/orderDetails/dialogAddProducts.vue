@@ -54,7 +54,7 @@ export default {
                 name: [ v => !!v || 'Name is required', ],
                 sku: [ v => !!v || 'Sku is required', ],
                 quantity: [ v => !!v || 'Quantity is required', v => /^(|[1-9][0-9]*)$/.test(v) || 'Quantity must be a valid number', ],
-                price: [ v => !!v || 'Price is required', v => /^[1-9]+(\.[0-9]{1,2})?$/.test(v) || 'Price must be a valid number',],
+                price: [ v => !!v || 'Price is required', v => /^[0-9]+(\.[0-9]{1,2})?$/.test(v) || 'Price must be a valid number',],
             }
         }
     },
@@ -82,7 +82,7 @@ export default {
     computed: {
         validateForm() {
             if(this.newProduct.sku != '' && this.newProduct.name != '' &&  this.newProduct.quantity != '' && /^(|[1-9][0-9]*)$/.test(this.newProduct.quantity) 
-            && this.newProduct.price != '' && /^[1-9]+(\.[0-9]{1,2})?$/.test(this.newProduct.price) )
+            && this.newProduct.price != '' && /^[0-9]+(\.[0-9]{1,2})?$/.test(this.newProduct.price) )
                 return false;
             else
                 return true;

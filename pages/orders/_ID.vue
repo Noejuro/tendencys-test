@@ -1,21 +1,21 @@
 <template>
-    <v-row>
+    <v-row class="main-container">
         <v-col>
             <!-- Add Product Form Dialog -->
             <dialogAddProducts :dialog="dialogAddProducts" @closeDialog="dialogAddProducts = false" @saveProduct="saveProduct" />
             <!-- Succes Payment Dialog -->
             <dialogSuccessPayment :dialog="dialogSuccessPayment" @closeDialog="dialogSuccessPayment = false" />
-            <!-- Add product -->
-            <v-row>
-                <v-btn color="success" @click="dialogAddProducts = true"> Agregar producto </v-btn>
-            </v-row>
             <!-- Order products and Details -->
-            <v-row>
+            <v-row align="start">
                 <v-col>
                     <orderProducts :products="order.items" />
                 </v-col>
-                <v-col>
+                <v-col cols="auto" class="sticky-block">
                     <orderDetails :orderDetails="order" @openSuccessPaymentDialog="dialogSuccessPayment = true" />
+                    <!-- Add product -->
+                    <v-row class="pt-10 px-4">
+                        <v-btn color="success" block @click="dialogAddProducts = true"> Add product </v-btn>
+                    </v-row>
                 </v-col>
             </v-row>
         </v-col>
@@ -69,3 +69,7 @@ export default {
       }
 }
 </script>
+
+<style scoped>
+    .sticky-block { position: sticky !important; top: 0; }
+</style>

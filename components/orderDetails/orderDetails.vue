@@ -1,10 +1,12 @@
 <template>
     <v-row id="order-details">
-        <v-col class="pa-0">
-            <v-row> Order: {{orderDetails.name}} </v-row>
-            <v-row v-if="this.orderDetails.items"> Subtotal ({{getProductsQuantity}} products): {{getSubTotal}} </v-row>
-            <v-row> <v-btn color="success" @click="$emit('openSuccessPaymentDialog')" block>Finish Payment</v-btn> </v-row>
-        </v-col>
+        <v-card class="order-details-card">
+            <v-col class="py-5">
+                <v-row> <p class="mb-0"> Order: <b> {{orderDetails.name}} </b> </p> </v-row>
+                <v-row v-if="this.orderDetails.items" class="pb-4"> <h3> Subtotal ({{getProductsQuantity}} products): {{getSubTotal}} </h3> </v-row>
+                <v-row> <v-btn color="success" @click="$emit('openSuccessPaymentDialog')" block>Finish Payment</v-btn> </v-row>
+            </v-col>
+        </v-card>
     </v-row>
 </template>
 
@@ -42,5 +44,5 @@
 </script>
 
 <style scoped>
-
+    .order-details-card { width: 400px; max-width: 100%; }
 </style>

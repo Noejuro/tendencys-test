@@ -14,7 +14,7 @@
 
 <style scoped>
     #site-footer {
-        background-color: #463f57;
+        background-color: #553D67;
         box-shadow: 0px 2px 10px #888888;
         transition: 1s;
         z-index: 1;

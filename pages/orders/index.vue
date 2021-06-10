@@ -1,6 +1,8 @@
 <template>
    <v-row class="main-container">
-      <ordersList :orders="clientOrders" />
+      <v-col class="py-0" align-self="center">
+         <ordersList :orders="clientOrders" />
+      </v-col>
    </v-row>
 </template>
 
