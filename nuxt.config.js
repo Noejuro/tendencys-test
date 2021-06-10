@@ -11,7 +11,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'https://cdn.glitch.com/c9340de0-d9c1-4c8a-988c-2836b8426a55%2FImagen1.png?v=1621648108779' }
     ]
   },
 

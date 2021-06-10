@@ -35,6 +35,11 @@ import dialogSuccessPayment from '@/components/orderDetails/dialogSuccessPayment
 export default {
     layout: 'main',
     components: { orderDetails, orderProducts, dialogAddProducts, dialogSuccessPayment },
+    head() {
+        return {
+            title: 'Order #' + this.$router.currentRoute.params.ID
+        }
+    },
     data() {
         return {
             order: {},

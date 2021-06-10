@@ -11,6 +11,9 @@
    export default {
       layout: 'main',
       components: { ordersList },
+      head: {
+         title: 'Orders',
+      },
       data() {
          return{
             clientOrders: []
