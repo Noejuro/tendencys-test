@@ -1,6 +1,12 @@
 <template>
     <v-row>
         <v-col>
+            <dialogAddProducts :dialog="dialogAddProducts" @closeDialog="dialogAddProducts = false" @saveProduct="saveProduct" />
+            <!-- Add product -->
+            <v-row>
+                <v-btn color="success" @click="dialogAddProducts = true"> Agregar producto </v-btn>
+            </v-row>
+            <!-- Order products and Details -->
             <v-row>
                 <v-col>
                     <orderProducts :products="order.items" />
@@ -16,14 +22,16 @@
 <script>
 import orderDetails from '@/components/orderDetails/orderDetails.vue'
 import orderProducts from '@/components/orderDetails/orderProducts.vue'
+import dialogAddProducts from '@/components/orderDetails/dialogAddProducts.vue'
 
 export default {
     layout: 'main',
-    components: { orderDetails, orderProducts },
+    components: { orderDetails, orderProducts, dialogAddProducts },
     data() {
         return {
             order: {},
             orderID: this.$router.currentRoute.params.ID,
+            dialogAddProducts: false,
         }
     },
     beforeMount() {
@@ -45,9 +53,13 @@ export default {
                   console.log(`%cERROR`, 'color: red; font-weight: bold;', error);
             }); 
          },
-
          findOrder(data) {
              return data.find( order => order.number === this.orderID );
+         },
+         saveProduct(newProduct) {
+             console.log("Product to be saved: ", newProduct )
+             this.order.items.unshift(Object.assign({}, newProduct))
+             this.dialogAddProducts = false;
          }
       }
 }

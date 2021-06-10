@@ -23,9 +23,6 @@
 <script>
     export default {
         props: { products: Array },
-        mounted() {
-            console.log("Products: ", this.products)
-        }
     }
 </script>
 
