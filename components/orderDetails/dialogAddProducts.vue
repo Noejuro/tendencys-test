@@ -10,7 +10,7 @@
                     </v-col>
                     <v-col cols="12" class="pa-0">
                         <label for="name"><span class="obligatory-field">*</span>Name</label>
-                        <v-text-field ref="name" id="name" name="name" type="text" v-model="newProduct.name" required :rules="rules.name" background-color="#F5F5F5" shaped dense solo flat style="border-radius:10px" />
+                        <v-text-field ref="name" id="name" name="name" type="text" v-model="newProduct.name" required :rules="rules.name" title="This field is required" background-color="#F5F5F5" shaped dense solo flat style="border-radius:10px" />
                     </v-col>
                     <v-col cols="12" class="pa-0">
                         <label for="quantity"><span class="obligatory-field">*</span>Quantity</label>
@@ -22,12 +22,12 @@
                     </v-col>
                     <v-col cols="12" class="pa-0">
                         <label for="image-url">Image URL</label>
-                        <v-text-field ref="image-url" id="image-url" name="image-url" type="text" v-model="newProduct.imageUrl" :rules="rules.imageUrl" required title="This field is required" background-color="#F5F5F5" shaped dense solo flat style="border-radius:10px" />
+                        <v-text-field ref="image-url" id="image-url" name="image-url" type="text" v-model="newProduct.imageUrl" background-color="#F5F5F5" shaped dense solo flat style="border-radius:10px" />
                     </v-col>
                 </v-row>
                 <v-row justify="end"> 
                     <v-btn color="error" @click="$emit('closeDialog')">Close</v-btn>
-                    <v-btn color="success" @click="$emit('saveProduct', newProduct)">Save</v-btn>
+                    <v-btn color="success" :disabled="validateForm" @click="saveProduct()">Save</v-btn>
                 </v-row>
             </v-col>
         </v-card>
@@ -42,7 +42,7 @@ export default {
             newProduct: {
                 sku: '',
                 name: '',
-                quantity: 0,
+                quantity: '',
                 price: '',
                 imageUrl: '',
             },
@@ -52,6 +52,19 @@ export default {
                 quantity: [ v => !!v || 'Quantity is required', ],
                 price: [ v => !!v || 'Price is required', ],
             }
+        }
+    },
+    methods: {
+        saveProduct() {
+            this.$emit('saveProduct', this.newProduct)
+        }
+    },
+    computed: {
+        validateForm() {
+            if(this.newProduct.sku != '' && this.newProduct.name != '' &&  this.newProduct.quantity != '' &&  this.newProduct.price != '' )
+                return false;
+            else
+                return true;
         }
     }
 }
