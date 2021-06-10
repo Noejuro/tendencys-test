@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 export const actions = {
     GET: ({commit}, data) => {
         return new Promise((resolve, reject) => {

@@ -13,7 +13,7 @@
                     <v-row> <p> <b>Cantidad: </b> {{product.quantity}} </p> </v-row>
                 </v-col>
                 <v-col cols="2">
-                    <v-row justify="center"> <h2> <b> {{product.price}} </b> </h2> </v-row>
+                    <v-row justify="center"> <h2> <b> {{formatter.format(product.price)}} </b> </h2> </v-row>
                 </v-col>
             </v-row>
         </v-col>
@@ -23,6 +23,15 @@
 <script>
     export default {
         props: { products: Array },
+        data() {
+            return {
+                formatter: new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 0
+                })
+            }
+        },
     }
 </script>
 

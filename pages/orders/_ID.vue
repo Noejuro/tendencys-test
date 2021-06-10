@@ -1,7 +1,10 @@
 <template>
     <v-row>
         <v-col>
+            <!-- Add Product Form Dialog -->
             <dialogAddProducts :dialog="dialogAddProducts" @closeDialog="dialogAddProducts = false" @saveProduct="saveProduct" />
+            <!-- Succes Payment Dialog -->
+            <dialogSuccessPayment :dialog="dialogSuccessPayment" @closeDialog="dialogSuccessPayment = false" />
             <!-- Add product -->
             <v-row>
                 <v-btn color="success" @click="dialogAddProducts = true"> Agregar producto </v-btn>
@@ -12,7 +15,7 @@
                     <orderProducts :products="order.items" />
                 </v-col>
                 <v-col>
-                    <orderDetails :orderDetails="order" />
+                    <orderDetails :orderDetails="order" @openSuccessPaymentDialog="dialogSuccessPayment = true" />
                 </v-col>
             </v-row>
         </v-col>
@@ -23,15 +26,17 @@
 import orderDetails from '@/components/orderDetails/orderDetails.vue'
 import orderProducts from '@/components/orderDetails/orderProducts.vue'
 import dialogAddProducts from '@/components/orderDetails/dialogAddProducts.vue'
+import dialogSuccessPayment from '@/components/orderDetails/dialogSuccessPayment.vue'
 
 export default {
     layout: 'main',
-    components: { orderDetails, orderProducts, dialogAddProducts },
+    components: { orderDetails, orderProducts, dialogAddProducts, dialogSuccessPayment },
     data() {
         return {
             order: {},
             orderID: this.$router.currentRoute.params.ID,
             dialogAddProducts: false,
+            dialogSuccessPayment: false,
         }
     },
     beforeMount() {
