@@ -61,7 +61,6 @@ export default {
                      console.log(`%cORDERS:`, 'color: green; font-weight: bold;', response);
 
                   this.order = this.findOrder(response.data.orders)
-                  console.log("Order Details: ", this.order)
                   
                }).catch(error => {
                   console.log(`%cERROR`, 'color: red; font-weight: bold;', error);
@@ -71,7 +70,6 @@ export default {
              return data.find( order => order.number === this.orderID );
          },
          saveProduct(newProduct) {
-             console.log("Product to be saved: ", newProduct )
              this.order.items.unshift(Object.assign({}, newProduct))
              this.dialogAddProducts = false;
          }

@@ -18,7 +18,7 @@
 </script>
 
 <style>
-    @media only screen and (max-width: 960px) {
+    @media only screen and (max-width: 600px) {
         .main-container { min-height: calc( 100% - 177px ) !important; }
     }
 
