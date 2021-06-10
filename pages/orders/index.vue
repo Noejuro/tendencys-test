@@ -1,5 +1,5 @@
 <template>
-   <v-row>
+   <v-row class="main-container">
       <ordersList :orders="clientOrders" />
    </v-row>
 </template>

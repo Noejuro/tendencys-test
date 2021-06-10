@@ -1,11 +1,24 @@
 <template>
   <v-app >
-      <v-col class="pa-0">
+      <v-col class="pa-0 base-container">
+        <siteHeader />
         <Nuxt />
+        <siteFooter />
       </v-col>
   </v-app>
 </template>
 
+<script>
+  import siteHeader from '@/components/siteHeader.vue'
+  import siteFooter from '@/components/siteFooter.vue'
+
+  export default {
+      components: { siteHeader, siteFooter }
+  }
+</script>
+
 <style>
     .row { margin: 0px !important; }
+    .base-container { background-color: #EEEEEE; }
+    .main-container { min-height: calc( 100% - 170px ); }
 </style>
